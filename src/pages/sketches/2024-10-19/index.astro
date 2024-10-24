@@ -1,7 +1,19 @@
 ---
+import ScrollLock from "@/components/scroll-lock";
 import Layout from "@/layout.astro";
 ---
 
 <Layout>
-  <h1>2024-10-19</h1>
+  <ScrollLock />
+  <div id="root"></div>
 </Layout>
+
+<script>
+  import p5 from "p5";
+  import { sketch } from "./sketch";
+
+  const root = document.getElementById("root");
+  if (root) {
+    new p5(sketch, root);
+  }
+</script>
