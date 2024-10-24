@@ -1,4 +1,6 @@
 ---
+import { getBasePath } from "./utils/get-base-path";
+
 interface Props {
   title?: string;
 }
@@ -15,8 +17,13 @@ const siteTitle = title ?? Astro.url.pathname.split("/").at(-1);
     <meta name="generator" content={Astro.generator} />
 
     <title>{siteTitle}</title>
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="icon" href={getBasePath("/favicon.ico")} sizes="32x32" />
+    <link
+      rel="shortcut icon"
+      href={getBasePath("/favicon.svg")}
+      type="image/svg+xml"
+    />
 
     <style is:global>
       body {
