@@ -5,13 +5,18 @@ const skethes = await Astro.glob("@/pages/sketches/*/index.astro");
 ---
 
 <Layout title="Home">
-  {
-    skethes
-      .filter(({ url }) => url !== undefined)
-      .map(({ url }) => (
-        <>
-          <a href={url}>{url}</a>
-        </>
-      ))
-  }
+  <ul>
+    {
+      skethes
+        .filter(({ url }) => url !== undefined)
+        .map(
+          ({ url }) =>
+            url && (
+              <li>
+                <a href={url}>{url.split("/").at(-1)}</a>
+              </li>
+            ),
+        )
+    }
+  </ul>
 </Layout>
