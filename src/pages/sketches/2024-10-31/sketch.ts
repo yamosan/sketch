@@ -19,7 +19,7 @@ export function sketch(p: p5) {
 		p.resizeCanvas(p.windowWidth, p.windowHeight);
 	};
 
-	p.mouseClicked = () => {
+	p.touchStarted = () => {
 		firework = new Firework(p, p.createVector(p.mouseX, p.mouseY));
 	};
 }

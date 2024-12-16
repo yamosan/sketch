@@ -22,7 +22,7 @@ export function sketch(p: p5) {
 		p.resizeCanvas(p.windowWidth, p.windowHeight);
 	};
 
-	p.mouseClicked = () => {
+	p.touchStarted = () => {
 		const waveTypes = [TriangleWave, SinWave, SquareWave, SawtoothWave];
 		for (let i = 0; i < waveTypes.length; i++) {
 			const waveType = waveTypes[i];
@@ -33,7 +33,7 @@ export function sketch(p: p5) {
 		}
 	};
 
-	// p.mouseClicked = () => {
+	// p.touchStarted = () => {
 	// 	const waveTypes = [TriangleWave, SinWave, SquareWave];
 	// 	const waveType = p.random(waveTypes);
 	// 	const factory: WaveFactory = (...args) => {
@@ -42,23 +42,23 @@ export function sketch(p: p5) {
 	// 	waves.push(...createWaves(p.createVector(p.mouseX, p.mouseY), factory));
 	// };
 
-	function createWaves(center: p5.Vector, waveFactory: WaveFactory): Wave[] {
-		const angleDiv = 12;
-		const waves: Wave[] = [];
-		for (let i = 0; i < angleDiv; i++) {
-			const amplitude = 50;
-			const period = 25;
-			const rotate = (p.TWO_PI / angleDiv) * i;
-			const startPos = p.createVector(
-				center.x + p.cos(rotate) * 80,
-				center.y + p.sin(rotate) * 80,
-			);
+	// function createWaves(center: p5.Vector, waveFactory: WaveFactory): Wave[] {
+	// 	const angleDiv = 12;
+	// 	const waves: Wave[] = [];
+	// 	for (let i = 0; i < angleDiv; i++) {
+	// 		const amplitude = 50;
+	// 		const period = 25;
+	// 		const rotate = (p.TWO_PI / angleDiv) * i;
+	// 		const startPos = p.createVector(
+	// 			center.x + p.cos(rotate) * 80,
+	// 			center.y + p.sin(rotate) * 80,
+	// 		);
 
-			const wave = waveFactory(p, startPos, amplitude, period, rotate);
-			waves.push(wave);
-		}
-		return waves;
-	}
+	// 		const wave = waveFactory(p, startPos, amplitude, period, rotate);
+	// 		waves.push(wave);
+	// 	}
+	// 	return waves;
+	// }
 }
 
 abstract class Wave {

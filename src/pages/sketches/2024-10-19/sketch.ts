@@ -24,7 +24,7 @@ export function sketch(p: p5) {
 		p.resizeCanvas(p.windowWidth, p.windowHeight);
 	};
 
-	p.mouseClicked = () => {
+	p.touchStarted = () => {
 		const center = p.createVector(p.mouseX, p.mouseY);
 		for (let i = 0; i < numWalkers; i++) {
 			const walker = new Walker(p, center);
