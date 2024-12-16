@@ -38,7 +38,7 @@ class Firework {
 		this.p = p;
 		this.startPosition = center;
 
-		this.dispersionCount = 4;
+		this.dispersionCount = 3;
 		this.dispersionTime = 40;
 		this.angleDiv = 8;
 		this.step = 4;
