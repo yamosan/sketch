@@ -1,4 +1,4 @@
-import p5 from "p5";
+import type p5 from "p5";
 
 export class Ball {
 	private p: p5;
@@ -23,7 +23,7 @@ export class Ball {
 	}
 
 	attract(other: Ball) {
-		const force = p5.Vector.sub(this.pos, other.pos);
+		const force = this.pos.copy().sub(other.pos);
 		const distanceSq = this.p.constrain(force.magSq(), 100, 1000); // 距離²を制限して安定性を確保
 
 		// 距離²の最小値を設定して過度な引力を防ぐ
